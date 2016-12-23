@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Impressions</th>
+      <th>User</th>
+      <th>Image</th>
+      <th>Views</th>
+      <th>Live</th>
+      <th>Clicks</th>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Website</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ads.each do |ad| %>
+      <tr>
+        <td><%= ad.url %></td>
+        <td><%= ad.impressions %></td>
+        <td><%= ad.user_id %></td>
+        <td><%= ad.image %></td>
+        <td><%= ad.views %></td>
+        <td><%= ad.live %></td>
+        <td><%= ad.clicks %></td>
+        <td><%= ad.title %></td>
+        <td><%= ad.slug %></td>
+        <td><%= ad.website_id %></td>
+        <td><%= link_to 'Show', ad %></td>
+        <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+        <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ad', new_ad_path %>

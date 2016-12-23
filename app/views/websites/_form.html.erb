@@ -1,0 +1,22 @@
+<%= simple_form_for(@website) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+
+     <div class="input-group">
+          <span class="input-group-addon">http://</span>
+          <%= f.input :url, label: false %>
+    </div>
+    <br/>
+    <%= f.input :price %>
+    <%= f.input :image %>
+    <%= f.input :user_id, as: :hidden %>
+    <%= f.input :active, as: :hidden %>
+    <%= f.input :disabled, as: :hidden %>
+  </div>
+  <br/>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @ad.url %>
+</p>
+
+<p>
+  <strong>Impressions:</strong>
+  <%= @ad.impressions %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ad.user_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @ad.image %>
+</p>
+
+<p>
+  <strong>Views:</strong>
+  <%= @ad.views %>
+</p>
+
+<p>
+  <strong>Live:</strong>
+  <%= @ad.live %>
+</p>
+
+<p>
+  <strong>Clicks:</strong>
+  <%= @ad.clicks %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ad.title %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @ad.slug %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @ad.website_id %>
+</p>
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>

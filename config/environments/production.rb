@@ -1,3 +1,14 @@
+ENV["DOMAIN_NAME"] = "www.adupapp.com"
+ENV["ADMIN_NAME"] = "morganric"
+ENV["ADMIN_EMAIL"] = "morganric@gmail.com"
+ENV["ADMIN_PASSWORD"] = "Lionking1"
+
+ENV["SENDGRID_USERNAME"] = 'playlisterappcom@gmail.com'
+ENV["SENDGRID_PASSWORD"] = 'Pl4yl15t&ch1ll'
+
+ENV['SECRET_KEY'] = "sk_test_PhIgEyytohpRn7TF5eXG9Sk9"
+ENV['PUBLISHABLE_KEY'] = "pk_test_PeLyRBcFsGgCdFxNcgAopo6F"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

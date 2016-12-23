@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: phunder-app
+  api_key: '261684531757639'
+  api_secret: Et6CePVvUES7ST-j9YCVIRpzGt4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: phunder-app
+  api_key: '261684531757639'
+  api_secret: Et6CePVvUES7ST-j9YCVIRpzGt4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: phunder-app
+  api_key: '261684531757639'
+  api_secret: Et6CePVvUES7ST-j9YCVIRpzGt4
+  enhance_image_tag: true
+  static_image_support: false

@@ -1,0 +1,91 @@
+<div class="col-md-12">
+	<div class="col-md-8">
+
+	<h1>
+	 Purchase an Ad on: <%= link_to @website.url, @website.url, target: "_blank" %>
+	</h1>
+	<hr/>
+
+	<%= form_tag url_for(:controller => "ads", :action => "create"),  :enctype =>"multipart/form-data" do %>
+
+	<%#= form_tag ({:controller => "ads", :action => "create"}), :enctype =>"multipart/form-data" do %>
+
+		<div class="input-group">
+
+		<p><b>Target:</b></p>
+	    <%= text_field_tag :url %>
+	    <p class="help-block">Your click through URL</p>
+
+	    </div>
+	    <br/>
+	    <div class="input-group">
+	    
+	    <p><b>Impressions:</b></p>
+	        <%= select_tag :impressions, options_for_select((1000...10000).step(1000))  , :class=> "form-control", id: "impressions", :width => "50%" %>
+	    </div>
+	    <p class="help-block">Price per 1000 impressions is $10.</p>
+	    <br/>
+	    <div class="clearfix">
+	      <div class="pull-left">
+	      <p><b>Creative:</b></p>
+	      <%= file_field_tag "image", :class => "btn btn-default" %>
+	      <p class="help-block">Select an MPU image file, 300px250px, either .jpg, .png or .gif.</p>
+	      <%= hidden_field_tag :website_id, @website.id %>
+	      <%= hidden_field_tag :user_id, current_user.id %>
+	      </div>
+	    </div>
+	    <br/>
+	    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	            data-key="pk_test_PeLyRBcFsGgCdFxNcgAopo6F"
+	            data-description="Ads on <%= @website.url %>"
+	            data-amount="<%= params[:impressions].to_i / 100 %>">
+	    </script>
+	  <% end %>
+
+
+	</div>
+
+	<div class="col-md-4">
+	<br/>
+
+	<img id="image-0" src="<%= @website.image.url(:mpu) %>" alt="">
+	<br/>
+		<% if current_user && current_user.admin?  %>
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-block" data-toggle="modal" data-target="#myModal">
+			  Embed
+			</button>
+			<br/>
+			<%= link_to 'Edit', edit_website_path(@website), class: "pull-right" %>
+		<% end %>
+	</div>
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <textarea cols="70">
+        	<iframe src="<%= display_url(@website) %>" width="300" height="250" frameborder="0"></iframe>
+        </textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
