@@ -13,7 +13,7 @@
 	<% if @ads.blank? %>
 		<div style="background-color:white; border: 1px lightGrey solid; border-radius:5px; padding: 10px;">
 			<h1>Buy this ad spot today!</h1>
-			<h3>On <%= @website.url %></h3>
+			<h4><%= @website.url %></h4>
 			<br/>
 			<a href="<%= website_path(@website) %>" target="_blank" ><button class="btn-success btn btn-block btn-lg">Buy</button></a>
 		</div>
