@@ -36,7 +36,7 @@
 	    </div>
 	    <br/>
 	    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	            data-key="pk_test_PeLyRBcFsGgCdFxNcgAopo6F"
+	            data-key="<%= @publishable_key %>"
 	            data-description="Ads on <%= @website.url %>"
 	            data-amount="<%= params[:impressions].to_i / 100 %>">
 	    </script>

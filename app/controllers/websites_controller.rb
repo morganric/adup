@@ -24,6 +24,8 @@ class WebsitesController < ApplicationController
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
       # Stripe.api_key = @campaign.user.stripe_secret_key
 
+      @publishable_key = Rails.configuration.stripe[:publishable_key]
+
 
   end
 
