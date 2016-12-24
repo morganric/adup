@@ -1,4 +1,21 @@
+<script type="text/javascript">
 
+	console.log(document.referrer);
+
+	var url = document.referrer;
+	var hostname = (new URL(url)).hostname;
+
+	console.log(hostname);
+
+
+ 	if (hostname === "<%= @website.url %>") {
+		console.log(true);
+	} else {
+		window.location = "<%= page_path('about') %>"
+	}
+
+
+</script>
 
 	<% if @ads.blank? %>
 		<div style="min-height:250px; background-color:white; border: 1px lightGrey solid; border-radius:5px; padding: 10px;">
@@ -31,24 +48,3 @@
 <p class="pull-right">
 	ads by <%= link_to "AdUp", root_path, target: "_blank" %>
 </p>
-
-
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script type="text/javascript">
-
-	console.log(document.referrer);
-
-	var url = document.referrer;
-	var hostname = (new URL(url)).hostname;
-
-	console.log(hostname);
-
-
- 	if (hostname === "<%= @website.url %>") {
-		console.log(true);
-	} else {
-		window.location = "<%= page_path('about') %>"
-	}
-
-
-</script>
