@@ -41,7 +41,7 @@
 
 <% unless @ads.blank? %>
 <p class="pull-left">
-	<%= link_to "Buy this ad spot", root_path, target: "_blank" %>
+	<%= link_to "Buy this ad spot", website_path(@website), target: "_blank" %>
 </p>
 <% end %>
 
