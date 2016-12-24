@@ -42,6 +42,16 @@ class WebsitesController < ApplicationController
     render layout: "display"
   end
 
+
+  # GET /websites/1
+  # GET /websites/1.json
+  def house 
+
+    @website  = Website.find_by_url(params[:url])
+
+    render layout: "display"
+  end
+
   # GET /websites/new
   def new
     @website = Website.new

@@ -1,0 +1,7 @@
+<div style="min-height: 250px;">
+	<h1>Buy this ad on <% unless @website.blank?  %><%= @website.url %><% else %>
+	AdUp<% end %></h1>
+
+	<a href="<%= root_url %>" target="_blank" style="position: absolute; bottom: 10px; width: 100%;"><button class="btn btn-lg btn-success btn-block ">Buy</button></a>	
+
+</div>
