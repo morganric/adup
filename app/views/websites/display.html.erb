@@ -1,36 +1,53 @@
 <script type="text/javascript">
 
-	console.log(window.parent.location.hostname);
+ if (window.parent.location.hostname != null) {
 
-	if (window.parent.location.hostname == "<%= @website.url %>") {
+ 	if (window.parent.location.hostname === "<%= @website.url %>") {
 		console.log(true);
 	} else {
 		window.location = "<%= root_url %>"
 	}
+
+ } else {
+
+ 	window.location = "<%= root_url %>"
+ };
+
+
+	
+
+	console.log(window.parent.location.hostname);
+
 </script>
 
-<div style="height:250px;">
+
 	<% if @ads.blank? %>
-		<div style="background-color:white; border: 1px lightGrey solid; border-radius:5px; padding: 10px;">
+		<div style="min-height:250px; background-color:white; border: 1px lightGrey solid; border-radius:5px; padding: 10px;">
 			<h1>Buy this ad spot today!</h1>
 			<h4><%= @website.url %></h4>
 			<br/>
 			<a href="<%= website_path(@website) %>" target="_blank" ><button class="btn-success btn btn-block btn-lg">Buy</button></a>
 		</div>
 	<% else %>
+		<div style="min-height:250px;">
+			<a href="<%= forward_url(@ad) %>" target="_blank" ><%= image_tag(@ad.image.url(:mpu), alt: "this ad") %></a>
 
-		<a href="<%= forward_url(@ad) %>" target="_blank" ><%= image_tag(@ad.image.url(:mpu), alt: "this ad") %></a>
+			<% @ad.views = @ad.views.to_i + 1 %>
+			<% @ad.save %>
 
-		<% @ad.views = @ad.views.to_i + 1 %>
-		<% @ad.save %>
+			<script type="text/javascript">
+				// post to ad for view and clicks
 
-		<script type="text/javascript">
-			// post to ad for view and clicks
-
-		</script>
-
+			</script>
+		</div>
 	<% end %>
 </div>
+
+<% unless @ads.blank? %>
+<p class="pull-left">
+	<%= link_to "Buy this ad spot", root_path, target: "_blank" %>
+</p>
+<% end %>
 
 <p class="pull-right">
 	ads by <%= link_to "AdUp", root_path, target: "_blank" %>

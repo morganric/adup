@@ -46,10 +46,11 @@ class AdsController < ApplicationController
         @ad.user_id = current_user.id
       end
       #@ad.title = params[:title]
-      @ad.impressions = params[:impressions]
+      @ad.impressions = params[:impressions].to_i
       @ad.image = params[:image]
       @ad.url = params[:url]
       @ad.website_id = params[:website_id].to_i
+      @ad.views = 0
       
 
       customer = Stripe::Customer.create(
