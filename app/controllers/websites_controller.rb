@@ -3,7 +3,7 @@ class WebsitesController < ApplicationController
 
   before_filter :authenticate_user!,  except: [:index, :show, :display]
 
-    after_filter :allow_iframe
+  after_filter :allow_iframe
 
   # GET /websites
   # GET /websites.json
@@ -36,6 +36,8 @@ class WebsitesController < ApplicationController
     @ads = @website.ads.where("views < impressions").order("created_at DESC")
 
     @ad = @ads.first
+
+    @parent = params[:parent]
 
     render layout: "display"
   end

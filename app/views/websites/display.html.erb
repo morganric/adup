@@ -1,24 +1,3 @@
-<script type="text/javascript">
-
- if (window.parent.location.hostname != null) {
-
- 	if (window.parent.location.hostname === "<%= @website.url %>") {
-		console.log(true);
-	} else {
-		window.location = "<%= root_url %>"
-	}
-
- } else {
-
- 	window.location = "<%= root_url %>"
- };
-
-
-	
-
-	console.log(window.parent.location.hostname);
-
-</script>
 
 
 	<% if @ads.blank? %>
@@ -53,3 +32,23 @@
 	ads by <%= link_to "AdUp", root_path, target: "_blank" %>
 </p>
 
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+
+	console.log(document.referrer);
+
+	var url = document.referrer;
+	var hostname = (new URL(url)).hostname;
+
+	console.log(hostname);
+
+
+ 	if (hostname === "<%= @website.url %>") {
+		console.log(true);
+	} else {
+		window.location = "<%= root_url %>"
+	}
+
+
+</script>
